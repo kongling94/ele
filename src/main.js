@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import resource from 'vue-resource'
 Vue.config.productionTip = false;
 import axios from 'axios';
 Vue.prototype.$axios = axios;
@@ -15,6 +16,7 @@ import ratings from './components/ratings/ratings.vue'
 import VueRouter from 'vue-router';
 
 let app=Vue.extend({});
+Vue.use(resource);
 
 // let good = Vue.extend({
 //   template:'<div>我的商品出不来</div>'
@@ -38,7 +40,7 @@ let Router =new VueRouter({
   routes:[
     { path:'/',redirect: "/rating" },
     { path: "/goods", component: goods },
-    { path: "/seller/:name", component: seller },
+    { path: "/seller", component: seller },
     { path: "/ratings", component: ratings }
   ]
 })
@@ -46,6 +48,7 @@ let Router =new VueRouter({
 new Vue({
   el: '#app',
   router: Router,
+  resource,
   components: { App },
   template: '<App/>'
 })

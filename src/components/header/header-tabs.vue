@@ -1,7 +1,7 @@
 <template>
   <div class="tabs">
     <div class="tabs-item">
-      <router-link to="/seller/xiaomi">商家</router-link>
+      <router-link to="/seller">商家</router-link>
     </div>
     <div class="tabs-item">
       <router-link to="/goods">商品</router-link>
@@ -10,6 +10,7 @@
       <router-link to="/ratings">评论</router-link>
     </div>
   </div>
+  
 </template>
 
 <script>
