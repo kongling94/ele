@@ -22,16 +22,18 @@
 
         <div v-if="seller.supports" class="btn">
           <span class="count">{{seller.supports.length}}个</span>
-          <i class="icon-keyboard_arrow_righ"></i>
-          <!-- <i class="icon-add_circle"></i> -->
+          <i class="icon-keyboard_arrow_right"></i>
         </div>
       </div>
 
     </div>
     <div class="bulletin-wrap">
-
+      <span class="bulletin-title"></span><span class="bulletin-text">{{seller.bulletin}}</span>
+      <i class="icon-keyboard_arrow_right"></i>
     </div>
-
+    <div class="bgc-img">
+      <img :src="seller.avatar" alt="" width="100%" height="100%">
+    </div>
   </div>
 
 </template>
@@ -63,13 +65,15 @@
   @import url('../../../static/css/mixin.less');
 
   .header {
-    padding: 24px 12px 18px 24px;
     background: rgba(7, 17, 27, 0.5);
     color: #fff;
     text-align: left;
+    position: relative;
     .header-wrap {
       font-size: 0;
+      padding: 24px 12px 0 24px;
       position: relative;
+      padding-bottom: 8px;
       .avatar {
         height: 64px;
         width: 64px;
@@ -85,6 +89,7 @@
         display: inline-block;
         font-size: 14px;
         vertical-align: top;
+       
 
         .title {
           margin: 2px 0 8px 0;
@@ -147,10 +152,10 @@
         .btn {
           position: absolute;
           right: 12px;
-          bottom: 18px;
+          bottom: 5px;
           padding: 7px 8px;
-          height: 24px;
-          line-height: 24px;
+          height: 20px;
+          line-height: 20px;
           border-radius: 14px;
           background-color: rgba(0, 0, 0, 0.2);
           span {
@@ -161,9 +166,49 @@
           i {
             width: 4px;
             height: 4px;
+            // font-size: 14px;
+            vertical-align: middle;
           }
         }
       }
+    }
+    .bulletin-wrap{
+      height: 28px;
+      line-height: 28px;
+      padding: 0 22px 0 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      position: relative;
+      background-color: rgba(7, 17, 27, 0.2);
+      .bulletin-title{
+        display: inline-block;
+        width: 22px;
+        height: 12px;
+        .bg-img('bulletin');
+        background-size:22px 12px;
+        background-repeat: no-repeat;
+        margin-right: 4px;
+      }
+      .bulletin-text{
+        font-size: 10px;
+      }
+      .icon-keyboard_arrow_right{
+        position: absolute;
+        right: 12px;
+        top:8px;
+        font-size: 10px;
+      }
+    }
+    .bgc-img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; 
+      filter: blur(10px);
+
     }
   }
 

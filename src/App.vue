@@ -11,7 +11,8 @@
 <script>
   import header from './components/header/header'
   import tabs from './components/header/header-tabs'
-
+  //请求特征码  
+  const ERR_OK=0; 
   export default {
     data(){
       return {
@@ -20,12 +21,13 @@
     },
     name: 'App',
     components: {
-      'v-header': header,tabs
+      'v-header': header,
+      tabs
     },
     created(){
         this.$http.get("/api/seller").then((res)=>{
-            res=res.body;
-            if(res.errno == 0){
+            res=res.body;  //vue1.0中使用的是res.json(); 将数据对象转换为JSON对象，但在2.0中使用的是res.body;
+            if(res.errno == ERR_OK){
                 this.seller = res.data; 
             }
             

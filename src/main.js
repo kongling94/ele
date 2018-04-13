@@ -2,8 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router'
-import resource from 'vue-resource'
+import Router from './router'
+import Resource from 'vue-resource'
 Vue.config.productionTip = false;
 import axios from 'axios';
 Vue.prototype.$axios = axios;
@@ -16,7 +16,7 @@ import ratings from './components/ratings/ratings.vue'
 import VueRouter from 'vue-router';
 
 let app=Vue.extend({});
-Vue.use(resource);
+Vue.use(Resource);
 
 // let good = Vue.extend({
 //   template:'<div>我的商品出不来</div>'
@@ -36,7 +36,7 @@ Vue.use(resource);
 //   template: '<div>测试 for 评论</div>'
 // })
 
-let Router =new VueRouter({
+let routers =new VueRouter({
   routes:[
     { path:'/',redirect: "/rating" },
     { path: "/goods", component: goods },
@@ -47,8 +47,8 @@ let Router =new VueRouter({
 
 new Vue({
   el: '#app',
-  router: Router,
-  resource,
+  router: routers,
+  Resource,
   components: { App },
   template: '<App/>'
 })
